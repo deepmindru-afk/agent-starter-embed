@@ -5,9 +5,14 @@ interface AgentAudioTileProps {
   className?: string;
 }
 
-export const AvatarTile = ({ videoTrack, className }: AgentAudioTileProps) => {
+export const AvatarTile = ({
+  videoTrack,
+  className,
+  ref,
+}: React.ComponentProps<'video'> & AgentAudioTileProps) => {
   return (
     <VideoTrack
+      ref={ref}
       trackRef={videoTrack}
       width={videoTrack?.publication.dimensions?.width ?? 0}
       height={videoTrack?.publication.dimensions?.height ?? 0}
