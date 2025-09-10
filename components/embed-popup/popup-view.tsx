@@ -52,7 +52,13 @@ export const PopupView = ({
     microphoneToggle,
     handleAudioDeviceChange,
   } = useAgentControlBar({
-    controls: { microphone: true },
+    controls: { 
+      microphone: true,
+      screenShare: true,
+      camera: true,
+      leave: true,
+      chat: true
+    },
     saveUserChoices: true,
   });
   const { messages, send } = useChatAndTranscription();
