@@ -56,7 +56,7 @@ export default function Welcome() {
         </div>
 
         <p>
-          Пример стартового агента для встраивания — это решение с минимальным написанием кода для встраивания агентов Портал в существующий веб-сайт или веб-приложение
+          Портал-агенты для Вашего Сайта
         </p>
 
         <div>
@@ -90,7 +90,7 @@ export default function Welcome() {
                   selectedTab === 'popup' && 'text-fgAccent font-bold'
                 )}
               >
-                Кнопка
+                Всплывающая кнопка
               </button>
             </div>
           </div>
@@ -128,16 +128,16 @@ export default function Welcome() {
 
         {selectedTab === 'popup' && (
           <>
-            <h3 className="sr-only text-lg font-semibold">Всплывающая кнопка</h3>
+            <h3 className="sr-only text-lg font-semibold">Всплывающее окно</h3>
             <div>
-              <h4 className="text-fg0 mb-1 font-semibold">Всроенный блок</h4>
+              <h4 className="text-fg0 mb-1 font-semibold">Встроить</h4>
               <pre className="border-separator2 bg-bg2 overflow-auto rounded-md border px-2 py-1">
                 <code className="font-mono">{`<script src="${embedPopupUrl}"></script>`}</code>
               </pre>
               <p className="text-fg4 my-4 text-sm">
-                Для применения настроек запустите{' '}
+                Для применения изменений{' '}
                 <code className="text-fg0">pnpm build-embed-popup-script</code>.<br />
-                Протестируйте{' '}
+                Тест{' '}
                 <a href="/popup" target="_blank" rel="noopener noreferrer" className="underline">
                   {popupTestUrl}
                 </a>
@@ -147,7 +147,7 @@ export default function Welcome() {
             <div className="flex justify-center pt-8">
               <div className="text-fgAccent flex gap-1">
                 <p className="grow text-sm">
-                Всплывающая кнопка должна появиться в правом нижнем углу экрана.
+                  Всплывающее окно появится в нижней части экрана
                 </p>
                 <HandPointingIcon
                   size={16}
