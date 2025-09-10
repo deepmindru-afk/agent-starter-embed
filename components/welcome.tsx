@@ -50,13 +50,13 @@ export default function Welcome() {
         <div className="items-top flex justify-between">
           <h1 className="text-fg0 text-2xl font-bold text-pretty">Встроить агентов на сайт</h1>
           <div className="mt-1">
-            <div className="sr-only">Toggle theme:</div>
+            <div className="sr-only">Тема:</div>
             <ThemeToggle className="w-auto" onClick={() => forceUpdate((c) => c + 1)} />
           </div>
         </div>
         <p>Портал-агенты для Вашего Сайта</p>
         <div>
-          <div className="text-fg0 mb-1 font-semibold">Select a variant</div>
+          <div className="text-fg0 mb-1 font-semibold">Вариант встраивания</div>
           <div className="border-separator2 rounded-xl border p-1">
             <div className="relative flex gap-2">
               <motion.div
