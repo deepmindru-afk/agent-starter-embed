@@ -11,13 +11,13 @@ export default async function Layout({ children }: RootLayoutProps) {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://livekit.io"
+          href="https://www.portalos.ru"
           className="scale-100 transition-transform duration-300 hover:scale-110"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/lk-logo.svg" alt="LiveKit Logo" className="block size-6 dark:hidden" />
+          <img src="/lk-logo.svg" alt="Portal Logo" className="block size-6 dark:hidden" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/lk-logo-dark.svg" alt="LiveKit Logo" className="hidden size-6 dark:block" />
+          <img src="/lk-logo-dark.svg" alt="Portal Logo" className="hidden size-6 dark:block" />
         </a>
         <span className="text-foreground font-mono text-xs font-bold tracking-wider uppercase">
           Сделано людьми{' '}
