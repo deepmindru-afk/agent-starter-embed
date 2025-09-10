@@ -48,7 +48,7 @@ export default function Welcome() {
     <div className="text-fg1 mx-auto flex min-h-screen max-w-prose flex-col justify-center py-4 md:py-20">
       <div className="h-[520px] space-y-10 px-4">
         <div className="items-top flex justify-between">
-          <h1 className="text-fg0 text-2xl font-bold text-pretty">LiveKit Agent Embed Starter</h1>
+          <h1 className="text-fg0 text-2xl font-bold text-pretty">Встроить агентов на сайт</h1>
           <div className="mt-1">
             <div className="sr-only">Toggle theme:</div>
             <ThemeToggle className="w-auto" onClick={() => forceUpdate((c) => c + 1)} />
