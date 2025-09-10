@@ -54,11 +54,7 @@ export default function Welcome() {
             <ThemeToggle className="w-auto" onClick={() => forceUpdate((c) => c + 1)} />
           </div>
         </div>
-
-        <p>
-          Портал-агенты для Вашего Сайта
-        </p>
-
+        <p>Портал-агенты для Вашего Сайта</p>
         <div>
           <div className="text-fg0 mb-1 font-semibold">Select a variant</div>
           <div className="border-separator2 rounded-xl border p-1">
@@ -146,9 +142,7 @@ export default function Welcome() {
             </div>
             <div className="flex justify-center pt-8">
               <div className="text-fgAccent flex gap-1">
-                <p className="grow text-sm">
-                  Всплывающее окно появится в нижней части экрана
-                </p>
+                <p className="grow text-sm">Всплывающее окно появится в нижней части экрана</p>
                 <HandPointingIcon
                   size={16}
                   weight="regular"
