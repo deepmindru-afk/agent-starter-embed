@@ -34,7 +34,7 @@ export default async function Layout({ children }: RootLayoutProps) {
       {children}
       <footer className="fixed bottom-0 left-0 flex w-full justify-center p-6">
         <p className="text-fg1 w-full max-w-prose pt-1 text-center text-xs leading-5 font-normal text-pretty md:text-sm">
-          Нужен персональный агент?' '}
+          Нужен персональный агент?{' '}
           <a
             target="_blank"
             rel="noopener noreferrer"
