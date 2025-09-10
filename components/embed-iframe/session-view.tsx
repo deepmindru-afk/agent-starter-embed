@@ -160,7 +160,7 @@ export const SessionView = ({
                 </BarVisualizer>
 
                 <p className="animate-text-shimmer inline-block !bg-clip-text text-sm font-semibold text-transparent">
-                  Agent listening
+                  Агент слушает
                 </p>
               </div>
             ) : null}

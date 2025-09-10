@@ -14,7 +14,7 @@ export default function PopupPage() {
         </div>
         <div className="text-fgAccent flex gap-1">
           <p className="grow text-sm">
-            The popup button should appear in the bottom right corner of the screen
+          Всплывающая кнопка должна появиться в правом нижнем углу экрана.
           </p>
           <HandPointingIcon
             size={16}

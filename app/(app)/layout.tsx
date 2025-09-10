@@ -20,28 +20,28 @@ export default async function Layout({ children }: RootLayoutProps) {
           <img src="/lk-logo-dark.svg" alt="LiveKit Logo" className="hidden size-6 dark:block" />
         </a>
         <span className="text-foreground font-mono text-xs font-bold tracking-wider uppercase">
-          Built with{' '}
+          Сделано людьми{' '}
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://docs.livekit.io/agents"
+            href="https://www.portalos.ru"
             className="underline underline-offset-4"
           >
-            LiveKit Agents
+            АО Портал
           </a>
         </span>
       </header>
       {children}
       <footer className="fixed bottom-0 left-0 flex w-full justify-center p-6">
         <p className="text-fg1 w-full max-w-prose pt-1 text-center text-xs leading-5 font-normal text-pretty md:text-sm">
-          Need help getting set up? Check out the{' '}
+          Нужен персональный агент?' '}
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://docs.livekit.io/agents/start/voice-ai/"
+            href="https://www.portalos.ru"
             className="underline"
           >
-            Voice AI quickstart
+            АО Портал
           </a>
           .
         </p>

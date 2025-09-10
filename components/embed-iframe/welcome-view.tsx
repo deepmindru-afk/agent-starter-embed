@@ -21,7 +21,7 @@ export const WelcomeView = ({
         </div>
 
         <Button variant="primary" size="lg" onClick={onStartCall} className="w-48 font-mono">
-          Chat with Agent
+          Чат с ИИ-агентом
         </Button>
       </div>
     </div>

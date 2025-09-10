@@ -56,8 +56,7 @@ export default function Welcome() {
         </div>
 
         <p>
-          The embed agent starter example is a low-code solution to embed a LiveKit Agent into an
-          existing website or web application.
+        Пример стартового агента для встраивания — это решение с минимальным написанием кода для встраивания агентов Портал в существующий веб-сайт или веб-приложение.
         </p>
 
         <div>
@@ -81,7 +80,7 @@ export default function Welcome() {
                   selectedTab === 'iframe' && 'text-fgAccent font-bold'
                 )}
               >
-                iFrame
+                Встроить
               </button>
               <button
                 type="button"
@@ -91,7 +90,7 @@ export default function Welcome() {
                   selectedTab === 'popup' && 'text-fgAccent font-bold'
                 )}
               >
-                Popup
+                Кнопка
               </button>
             </div>
           </div>
@@ -129,16 +128,16 @@ export default function Welcome() {
 
         {selectedTab === 'popup' && (
           <>
-            <h3 className="sr-only text-lg font-semibold">Popup Style</h3>
+            <h3 className="sr-only text-lg font-semibold">Всплывающая кнопка</h3>
             <div>
-              <h4 className="text-fg0 mb-1 font-semibold">Embed code</h4>
+              <h4 className="text-fg0 mb-1 font-semibold">Всроенный блок</h4>
               <pre className="border-separator2 bg-bg2 overflow-auto rounded-md border px-2 py-1">
                 <code className="font-mono">{`<script src="${embedPopupUrl}"></script>`}</code>
               </pre>
               <p className="text-fg4 my-4 text-sm">
-                To apply local changes, run{' '}
+                Для применения настроек запустите{' '}
                 <code className="text-fg0">pnpm build-embed-popup-script</code>.<br />
-                Test your latest build at{' '}
+                Протестируйте{' '}
                 <a href="/popup" target="_blank" rel="noopener noreferrer" className="underline">
                   {popupTestUrl}
                 </a>
@@ -148,7 +147,7 @@ export default function Welcome() {
             <div className="flex justify-center pt-8">
               <div className="text-fgAccent flex gap-1">
                 <p className="grow text-sm">
-                  The popup button should appear in the bottom right corner of the screen
+                Всплывающая кнопка должна появиться в правом нижнем углу экрана.
                 </p>
                 <HandPointingIcon
                   size={16}
