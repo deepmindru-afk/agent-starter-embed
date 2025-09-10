@@ -131,9 +131,7 @@ export default function Welcome() {
                 <code className="font-mono">{`<script src="${embedPopupUrl}"></script>`}</code>
               </pre>
               <p className="text-fg4 my-4 text-sm">
-                Для применения изменений{' '}
-                <code className="text-fg0">pnpm build-embed-popup-script</code>.<br />
-                Тест{' '}
+                Демо{' '}
                 <a href="/popup" target="_blank" rel="noopener noreferrer" className="underline">
                   {popupTestUrl}
                 </a>
