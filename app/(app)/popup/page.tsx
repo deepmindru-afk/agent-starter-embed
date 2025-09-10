@@ -13,9 +13,7 @@ export default function PopupPage() {
           <ThemeToggle className="w-fit" />
         </div>
         <div className="text-fgAccent flex gap-1">
-          <p className="grow text-sm">
-            Всплывающая кнопка должна появиться в правом нижнем углу экрана
-          </p>
+          <p className="grow text-sm">Всплывающая кнопка должна появиться в правом нижнем углу экрана</p>
           <HandPointingIcon
             size={16}
             weight="regular"

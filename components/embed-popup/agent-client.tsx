@@ -127,7 +127,7 @@ function EmbedFixedAgentClient({ appConfig }: EmbedFixedAgentClientProps) {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/lk-logo-dark.svg"
-                  alt="LiveKit Logo"
+                  alt="Portal Logo"
                   className="hidden size-6 dark:block"
                 />
               </div>
@@ -138,7 +138,7 @@ function EmbedFixedAgentClient({ appConfig }: EmbedFixedAgentClientProps) {
               </div>
 
               <Button variant="secondary" onClick={handleDismissError}>
-                <XIcon /> Отмена
+                <XIcon /> Dismiss
               </Button>
             </div>
             <div
