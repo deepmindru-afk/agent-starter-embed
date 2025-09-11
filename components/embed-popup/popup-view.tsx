@@ -250,7 +250,7 @@ export const PopupView = ({
                   size="sm"
                   kind="videoinput"
                   onActiveDeviceChange={handleVideoDeviceChange}
-                  variant="small"
+                  //variant="small"
                   className={cn([
                     'pl-2',
                     'peer-data-[state=off]/track:text-destructive-foreground',

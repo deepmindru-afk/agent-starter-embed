@@ -149,7 +149,7 @@ export const SessionView = ({
                     // onError={(error) =>
                     //   onDeviceError?.({ source: Track.Source.Microphone, error: error as Error })
                     // }
-                    variant="small"
+                    //variant="small"
                     onActiveDeviceChange={handleVideoDeviceChange}
                     className={cn([
                       'pl-2',
