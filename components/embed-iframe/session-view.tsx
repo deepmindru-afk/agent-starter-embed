@@ -44,6 +44,7 @@ export const SessionView = ({
     // FIXME: how do I explicitly ensure only the microphone channel is used?
     visibleControls,
     microphoneToggle,
+    cameraToggle,
     handleAudioDeviceChange,
     handleVideoDeviceChange,
     handleDisconnect,
@@ -143,6 +144,15 @@ export const SessionView = ({
                       'hidden rounded-l-none md:block',
                     ])}
                   />
+                <TrackToggle
+                  variant="primary"
+                  source={Track.Source.Camera}
+                  pressed={cameraToggle.enabled}
+                  disabled={cameraToggle.pending}
+                  onPressedChange={cameraToggle.toggle}
+                  className="peer/track group/track relative w-auto pr-3 pl-3 md:rounded-r-none md:border-r-0 md:pr-2"
+                  >
+                </TrackToggle>
                   <DeviceSelect
                     size="sm"
                     kind="videoinput"

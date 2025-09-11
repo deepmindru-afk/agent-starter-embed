@@ -50,6 +50,7 @@ export const PopupView = ({
     // FIXME: how do I explicitly ensure only the microphone channel is used?
     visibleControls,
     microphoneToggle,
+    cameraToggle,
     handleAudioDeviceChange,
     handleVideoDeviceChange,
   } = useAgentControlBar({
@@ -246,6 +247,17 @@ export const PopupView = ({
                     'hidden rounded-l-none md:block',
                   ])}
                 />
+                <TrackToggle
+                  variant="primary"
+                  source={Track.Source.Camera}
+                  pressed={cameraToggle.enabled}
+                  disabled={cameraToggle.pending}
+                  onPressedChange={cameraToggle.toggle}
+                  className="peer/track group/track relative w-auto pr-3 pl-3 md:rounded-r-none md:border-r-0 md:pr-2"
+                  >
+                </TrackToggle>
+                <hr className="bg-separator1 peer-data-[state=off]/track:bg-separatorSerious relative z-10 -mr-px hidden h-4 w-px md:block" />
+
                 <DeviceSelect
                   size="sm"
                   kind="videoinput"
