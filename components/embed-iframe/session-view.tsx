@@ -45,9 +45,16 @@ export const SessionView = ({
     visibleControls,
     microphoneToggle,
     handleAudioDeviceChange,
+    handleVideoDeviceChange,
     handleDisconnect,
   } = useAgentControlBar({
-    controls: { microphone: true },
+    controls: { 
+      microphone: true,
+      screenShare: true,
+      camera: true,
+      leave: true,
+      chat: true
+    },
     saveUserChoices: true,
   });
 
@@ -128,6 +135,22 @@ export const SessionView = ({
                     //   onDeviceError?.({ source: Track.Source.Microphone, error: error as Error })
                     // }
                     onActiveDeviceChange={handleAudioDeviceChange}
+                    className={cn([
+                      'pl-2',
+                      'peer-data-[state=off]/track:text-destructive-foreground',
+                      'hover:text-fg1 focus:text-fg1',
+                      'hover:peer-data-[state=off]/track:text-destructive-foreground focus:peer-data-[state=off]/track:text-destructive-foreground',
+                      'hidden rounded-l-none md:block',
+                    ])}
+                  />
+                  <DeviceSelect
+                    size="sm"
+                    kind="videoinput"
+                    // onError={(error) =>
+                    //   onDeviceError?.({ source: Track.Source.Microphone, error: error as Error })
+                    // }
+                    variant="small"
+                    onActiveDeviceChange={handleVideoDeviceChange}
                     className={cn([
                       'pl-2',
                       'peer-data-[state=off]/track:text-destructive-foreground',
