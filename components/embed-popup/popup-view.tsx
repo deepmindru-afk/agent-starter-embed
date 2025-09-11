@@ -51,6 +51,7 @@ export const PopupView = ({
     visibleControls,
     microphoneToggle,
     handleAudioDeviceChange,
+    handleVideoDeviceChange,
   } = useAgentControlBar({
     controls: { 
       microphone: true,
@@ -237,6 +238,19 @@ export const PopupView = ({
                   size="sm"
                   kind="audioinput"
                   onActiveDeviceChange={handleAudioDeviceChange}
+                  className={cn([
+                    'pl-2',
+                    'peer-data-[state=off]/track:text-destructive-foreground',
+                    'hover:text-fg1 focus:text-fg1',
+                    'hover:peer-data-[state=off]/track:text-destructive-foreground focus:peer-data-[state=off]/track:text-destructive-foreground',
+                    'hidden rounded-l-none md:block',
+                  ])}
+                />
+                <DeviceSelect
+                  size="sm"
+                  kind="videoinput"
+                  onActiveDeviceChange={handleVideoDeviceChange}
+                  variant="small"
                   className={cn([
                     'pl-2',
                     'peer-data-[state=off]/track:text-destructive-foreground',
