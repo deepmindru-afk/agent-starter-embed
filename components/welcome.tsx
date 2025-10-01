@@ -1,15 +1,16 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'motion/react';
-import { HandPointingIcon } from '@phosphor-icons/react';
+import { CheckIcon, CopyIcon, HandPointingIcon } from '@phosphor-icons/react';
 import { APP_CONFIG_DEFAULTS } from '@/app-config';
-import { THEME_STORAGE_KEY } from '@/lib/env';
+import { THEME_STORAGE_KEY, getSandboxId } from '@/lib/env';
 import type { ThemeMode } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import EmbedPopupAgentClient from './embed-popup/agent-client';
 import { ThemeToggle } from './theme-toggle';
+import { Button } from './ui/button';
 
 export default function Welcome() {
   const router = useRouter();
@@ -20,16 +21,36 @@ export default function Welcome() {
   const [, forceUpdate] = useState(0);
   const theme = (localStorage.getItem(THEME_STORAGE_KEY) as ThemeMode) ?? 'dark';
 
-  const embedUrl = useMemo(() => {
+  const [copied, setCopied] = useState(false);
+  const copyEmbedCode = useCallback((embedCode: string) => {
+    navigator.clipboard.writeText(embedCode);
+
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 1000);
+  }, []);
+
+  const iframeEmbedUrl = useMemo(() => {
     const url = new URL('/embed', window.location.origin);
     url.searchParams.set('theme', theme);
     return url.toString();
   }, [theme]);
 
-  const embedPopupUrl = useMemo(() => {
+  const popupEmbedUrl = useMemo(() => {
     const url = new URL('/embed-popup.js', window.location.origin);
     return url.toString();
   }, []);
+
+  const embedSandboxId = useMemo(() => getSandboxId(window.location.origin), []);
+
+  const popupEmbedCode = useMemo(
+    () => `<script\n  src="${popupEmbedUrl}"\n  data-lk-sandbox-id="${embedSandboxId}"\n></script>`,
+    [popupEmbedUrl, embedSandboxId]
+  );
+  const iframeEmbedCode = useMemo(() => {
+    return `<iframe\n  src="${iframeEmbedUrl}"\n  style="width: 320px; height: 64px;"\n></iframe>`;
+  }, [iframeEmbedUrl]);
 
   const popupTestUrl = useMemo(() => {
     const url = new URL('/popup', window.location.origin);
@@ -97,24 +118,38 @@ export default function Welcome() {
             <h3 className="sr-only text-lg font-semibold">IFrame Style</h3>
             <div>
               <h4 className="text-fg0 mb-1 font-semibold">Embed code</h4>
-              <pre className="border-separator2 bg-bg2 overflow-auto rounded-md border px-2 py-1">
+              <pre className="border-separator2 bg-bg2 relative overflow-auto rounded-md border px-2 py-1">
                 <code className="font-mono">
-                  {`<iframe\n  src="`}
-                  <a
-                    href={embedUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary underline"
-                  >
-                    {embedUrl}
-                  </a>
-                  {`"\n  style="width: 320px; height: 64px;"\n></iframe>`}
+                  {iframeEmbedCode.split(iframeEmbedUrl).map((stringPart, index) => {
+                    if (index === 0) {
+                      return <span key={index}>{stringPart}</span>;
+                    }
+
+                    return (
+                      <span key={index}>
+                        <a
+                          href={iframeEmbedUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary underline"
+                        >
+                          {iframeEmbedUrl}
+                        </a>
+                        {stringPart}
+                      </span>
+                    );
+                  })}
                 </code>
+                <div className="absolute top-0 right-0">
+                  <Button onClick={() => copyEmbedCode(iframeEmbedCode)}>
+                    {copied ? <CheckIcon className="text-fgSuccess" /> : <CopyIcon />}
+                  </Button>
+                </div>
               </pre>
             </div>
             <div className="flex justify-center">
               <iframe
-                src={embedUrl}
+                src={iframeEmbedUrl}
                 style={{ width: 320, height: 64 }}
                 className="opacity-100 transition-opacity duration-500 [@starting-style]:opacity-0"
               />
@@ -128,7 +163,7 @@ export default function Welcome() {
             <div>
               <h4 className="text-fg0 mb-1 font-semibold">Встроить</h4>
               <pre className="border-separator2 bg-bg2 overflow-auto rounded-md border px-2 py-1">
-                <code className="font-mono">{`<script src="${embedPopupUrl}"></script>`}</code>
+                <code className="font-mono">{popupEmbedCode}</code>
               </pre>
               <p className="text-fg4 my-4 text-sm">
                 Демо{' '}
