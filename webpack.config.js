@@ -1,3 +1,4 @@
+
 const webpack = require('webpack');
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
@@ -42,6 +43,6 @@ module.exports = {
   },
   externals: {
     // Mark LiveKitEmbedFixed as an external global (optional depending on usage)
-    LiveKitEmbedFixed: 'LiveKitEmbedFixed',
+    LiveKitEmbedFixed: 'EmbedFixed',
   },
 };
