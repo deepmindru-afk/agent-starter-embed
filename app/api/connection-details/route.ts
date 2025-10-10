@@ -6,6 +6,7 @@ import { RoomConfiguration } from '@livekit/protocol';
 const API_KEY = process.env.LIVEKIT_API_KEY;
 const API_SECRET = process.env.LIVEKIT_API_SECRET;
 const LIVEKIT_URL = process.env.LIVEKIT_URL;
+const BUTTON_AGENT = process.env.BUTTON_AGENT;
 
 // don't cache the results
 export const revalidate = 0;
@@ -28,10 +29,13 @@ export async function POST(req: Request) {
     if (API_SECRET === undefined) {
       throw new Error('LIVEKIT_API_SECRET is not defined');
     }
+    if (BUTTON_AGENT === undefined) {
+      const BUTTON_AGENT = "portal-agent";
+    }
 
     // Parse agent configuration from request body
     const body = await req.json();
-    const agentName: string = body?.room_config?.agents?.[0]?.agent_name;
+    const agentName = BUTTON_AGENT //: string = body?.room_config?.agents?.[0]?.agent_name;
 
     // Generate participant token
     const participantName = `voice_assistant_user_${Math.floor(Math.random() * 10_000)}`;
@@ -80,7 +84,14 @@ function createParticipantToken(
     canSubscribe: true,
   };
   at.addGrant(grant);
-
+  at.roomConfig = new RoomConfiguration({
+    agents: [
+      new RoomAgentDispatch({
+        agentName: agentName,
+        metadata: '{"user_id": "12345"}',
+      }),
+    ],
+  });
   if (agentName) {
     at.roomConfig = new RoomConfiguration({
       agents: [{ agentName }],
