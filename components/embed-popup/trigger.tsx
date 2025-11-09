@@ -82,7 +82,8 @@ export function Trigger({ error = null, popupOpen, onToggle }: TriggerProps) {
                   className="bg-bg1 size-5"
                   // webpack build throws if I use custom tailwind classes to achive this
                   style={{
-                    maskImage: 'url(/lk-logo.svg)',
+                    //maskImage: 'url(/lk-logo.svg)',
+                    maskImage: 'url(https://raw.githubusercontent.com/sorokinvld/portal-brandpack/refs/heads/main/rings-1_Portal_Base.svg)',
                     maskSize: 'contain',
                   }}
                 />
