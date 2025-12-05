@@ -30,7 +30,7 @@ export async function POST(req: Request) {
       throw new Error('LIVEKIT_API_SECRET is not defined');
     }
     if (BUTTON_AGENT === undefined) {
-      const BUTTON_AGENT = "portal-agent";
+      const BUTTON_AGENT = "portal";
     }
 
     // Parse agent configuration from request body
